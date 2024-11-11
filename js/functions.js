@@ -142,3 +142,12 @@ function wordReverse() {
 
     return reversedWord
 }
+
+// Countdown
+
+/**
+ * 
+ * @param {num} starterTime 
+ */
+
+

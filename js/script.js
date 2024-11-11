@@ -12,6 +12,24 @@ console.log(answersForm);
 const message = document.getElementById("message");
 console.log(message);
 
+// Timer
+
+let seconds = 5;
+
+const timer = setInterval(function () {
+
+    if (seconds >= 1) {
+
+        countDown.innerHTML = seconds--;
+
+    } else {
+
+        countDown.classList.add("d-none");
+        clearInterval
+    }
+
+},
+    1000);
 
 
 
