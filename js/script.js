@@ -5,6 +5,8 @@ console.clear();
 
 let countDown = document.getElementById("countdown");
 console.log(countDown);
+const instructions = document.getElementById("instructions");
+console.log(instructions);
 const numberList = document.getElementById("numbers-list");
 console.log(numberList);
 const answersForm = document.getElementById("answers-form");
@@ -24,8 +26,9 @@ const timer = setInterval(function () {
 
     } else {
 
+        clearInterval(countDown);
         countDown.classList.add("d-none");
-        clearInterval
+        instructions.innerHTML = "Inserisci i numeri che hai memorizzato"
     }
 
 },
