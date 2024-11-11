@@ -7,8 +7,8 @@ let countDown = document.getElementById("countdown");
 console.log(countDown);
 const instructions = document.getElementById("instructions");
 console.log(instructions);
-const numberList = document.getElementById("numbers-list");
-console.log(numberList);
+let numbersList = document.getElementById("numbers-list");
+console.log(numbersList);
 const answersForm = document.getElementById("answers-form");
 console.log(answersForm);
 const message = document.getElementById("message");
@@ -28,25 +28,48 @@ const timer = setInterval(function () {
 
         clearInterval(countDown);
         countDown.classList.add("d-none");
+        numbersList.classList.add("d-none");
         instructions.innerHTML = "Inserisci i numeri che hai memorizzato"
     }
 
 },
     1000);
 
-// RANDOM NUMBER GENERATOR
+// Create list 
 
 let i = 0;
-const casualNumbers = [];
+const casualNumbersArray = [];
 
-while (casualNumbers.length < 5 && i <= 100) {
+while (casualNumbersArray.length < 5 && i <= 100) {
 
-    if (casualNumbers[i] != randomNumberGenerator(1, 100)) {
+    if (casualNumbersArray[i] != randomNumberGenerator(1, 100)) {
+        casualNumbersArray.push(randomNumberGenerator(1, 100));
 
-        casualNumbers.push(randomNumberGenerator(1, 100));
     }
 }
-console.log(casualNumbers);
+for (let i = 0; i < casualNumbersArray.length; i++) {
+
+    const number1 = document.createElement("li");
+    number1.innerHTML = casualNumbersArray[i];
+    numbersList.appendChild(number1);
+
+}
+console.log(casualNumbersArray);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
