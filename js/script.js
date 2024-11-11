@@ -4,17 +4,19 @@ console.clear();
 // Get Elements
 
 let countDown = document.getElementById("countdown");
-console.log(countDown);
+// console.log(countDown);
 const instructions = document.getElementById("instructions");
-console.log(instructions);
+// console.log(instructions);
 let numbersList = document.getElementById("numbers-list");
-console.log(numbersList);
+// console.log(numbersList);
 const answersForm = document.getElementById("answers-form");
-console.log(answersForm);
+// console.log(answersForm);
 const message = document.getElementById("message");
-console.log(message);
+// console.log(message);
 const container = document.querySelector("body>div");
-console.log(container);
+// console.log(container);
+const inputs = document.querySelectorAll("input");
+console.log(inputs);
 
 
 
@@ -44,16 +46,18 @@ const timer = setInterval(function () {
 
 // Create list 
 
-let i = 0;
+
 const casualNumbersArray = [];
 
-while (casualNumbersArray.length < 5 && i <= 100) {
+while (casualNumbersArray.length < 5) {
 
-    if (casualNumbersArray[i] != randomNumberGenerator(1, 50)) {
-        casualNumbersArray.push(randomNumberGenerator(1, 50));
 
-    }
+    casualNumbersArray.push(randomNumberGenerator(1, 50));
+
+
 }
+
+
 for (let i = 0; i < casualNumbersArray.length; i++) {
 
     const numbers = document.createElement("li");
@@ -65,44 +69,55 @@ console.log(casualNumbersArray);
 
 // Submit event
 
-const inputs = document.querySelectorAll("input");
-console.log(inputs);
-
 const replayBtn = document.createElement("button");
 console.log(replayBtn);
 
+
+
 answersForm.addEventListener("submit", function (event) {
     event.preventDefault();
-    answersForm.classList.add("d-none")
-    const userNumbers = [];
-    for (let i = 0; i < inputs.length; i++) {
-        userNumbers.push(inputs[i].value);
-    }
-    console.log(userNumbers);
-
-    const guessedNumbers = [];
-
-    if (casualNumbersArray.includes(parseInt(inputs[i].value))) {
-        guessedNumbers.push(inputs[i].value);
-        console.log(guessedNumbers);
-        instructions.innerHTML = `Hai indovinato ${guessedNumbers.length} numeri (${guessedNumbers[i]})`;
-
-    } else if (guessedNumbers.length === 1) {
-
-        instructions.innerHTML = `Hai indovinato ${guessedNumbers.length} numero (${guessedNumbers[i]})`;
-    }
-
-    else {
-
-        instructions.innerHTML = "Non hai indovinato nemmeno un numero!";
-    }
-
-
+    answersForm.classList.add("d-none");
     replayBtn.classList.add("btn", "btn-primary", "mt-2", "d-block", "mx-auto");
     container.appendChild(replayBtn);
     replayBtn.innerHTML = "Rigioca";
 
+
+    // extract inputs values
+    const userNumbers = [];
+    for (let i = 0; i < inputs.length; i++) {
+
+        const field = parseInt(inputs[i].value);
+
+        userNumbers.push(field);
+    }
+    console.log(userNumbers);
+
+
+    // check guess numbers
+
+    const guessedNumbers = [];
+    for (let i = 0; i <= userNumbers.length; i++) {
+        const guess = userNumbers[i];
+        if (casualNumbersArray.includes(guess)) {
+            guessedNumbers.push(guess);
+            instructions.innerHTML = `Hai indovinato ${guessedNumbers.length} numeri (${guessedNumbers})`;
+        } else if (guessedNumbers.length === 0) {
+
+            instructions.innerHTML = `Non hai indovinato nessun numero!`;
+        } else if (guessedNumbers.length === 1) {
+            `Hai indovinato ${guessedNumbers.length} numero (${guessedNumbers})`;
+        }
+
+
+    }
+    console.log(guessedNumbers);
 });
+
+
+
+
+
+
 
 replayBtn.addEventListener("click", function () {
 
