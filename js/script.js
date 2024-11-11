@@ -34,6 +34,20 @@ const timer = setInterval(function () {
 },
     1000);
 
+// RANDOM NUMBER GENERATOR
+
+let i = 0;
+const casualNumbers = [];
+
+while (casualNumbers.length < 5 && i <= 100) {
+
+    if (casualNumbers[i] != randomNumberGenerator(1, 100)) {
+
+        casualNumbers.push(randomNumberGenerator(1, 100));
+    }
+}
+console.log(casualNumbers);
+
 
 
 
