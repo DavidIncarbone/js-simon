@@ -14,7 +14,7 @@ console.clear();
  * @abstract Genera un numero random compreso tra min e max
  */
 
-function randomNumberGenerator(min, max) {
+function randomNumbersGenerator(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 

@@ -46,16 +46,21 @@ const timer = setInterval(function () {
 
 // Create list 
 
-
 const casualNumbersArray = [];
+
 
 while (casualNumbersArray.length < 5) {
 
+    const randomNumbers = randomNumbersGenerator(1, 50);
 
-    casualNumbersArray.push(randomNumberGenerator(1, 50));
-
+    if (!casualNumbersArray.includes(randomNumbers)) {
+        casualNumbersArray.push(randomNumbers);
+    }
 
 }
+
+console.log(casualNumbersArray);
+
 
 
 for (let i = 0; i < casualNumbersArray.length; i++) {
@@ -65,7 +70,7 @@ for (let i = 0; i < casualNumbersArray.length; i++) {
     numbersList.appendChild(numbers);
 
 }
-console.log(casualNumbersArray);
+
 
 // Submit event
 
@@ -105,18 +110,12 @@ answersForm.addEventListener("submit", function (event) {
 
             instructions.innerHTML = `Non hai indovinato nessun numero!`;
         } else if (guessedNumbers.length === 1) {
-            `Hai indovinato ${guessedNumbers.length} numero (${guessedNumbers})`;
+            instructions.innerHTML = `Hai indovinato ${guessedNumbers.length} numero (${guessedNumbers})`;
         }
-
 
     }
     console.log(guessedNumbers);
 });
-
-
-
-
-
 
 
 replayBtn.addEventListener("click", function () {
