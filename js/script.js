@@ -142,12 +142,14 @@ answersForm.addEventListener("submit", function (event) {
     console.log(duplicates);
 
     if (duplicates.length > 0) {
-        alert("Non puoi inserire due numeri uguali!");
+        alert("Non puoi inserire due o più numeri uguali!");
         location.reload();
 
     }
 
 });
+
+// Replay game
 
 replayBtn.addEventListener("click", function () {
 
