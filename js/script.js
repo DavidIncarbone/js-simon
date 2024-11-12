@@ -17,6 +17,9 @@ message.classList.add("d-none");
 const container = document.querySelector("body>div");
 // console.log(container);
 const inputs = document.querySelectorAll("input");
+const invalidFeedback = document.querySelectorAll(".invalid-feedback");
+console.log(invalidFeedback);
+
 
 console.log(inputs);
 
@@ -39,7 +42,7 @@ const timer = setInterval(function () {
 
         countDown.classList.add("d-none");
         numbersList.classList.add("d-none");
-        instructions.innerHTML = "Inserisci i numeri che hai memorizzato"
+        instructions.innerHTML = "Inserisci i numeri che hai memorizzato (Non puoi inserire doppioni)"
         answersForm.classList.remove("d-none");
         clearInterval(timer);
     }
@@ -112,6 +115,9 @@ answersForm.addEventListener("submit", function (event) {
         const guess = userNumbers[i];
         message.classList.remove("d-none");
         instructions.classList.add("d-none");
+
+
+
         if (casualNumbersArray.includes(guess)) {
             guessedNumbers.push(guess);
             message.innerHTML = `Hai indovinato ${guessedNumbers.length} numeri (${guessedNumbers})`;
@@ -119,6 +125,13 @@ answersForm.addEventListener("submit", function (event) {
             message.innerHTML = `Non hai indovinato nessun numero!`;
         } else if (guessedNumbers.length === 1) {
             message.innerHTML = `Hai indovinato ${guessedNumbers.length} numero (${guessedNumbers})`;
+        } else if (guessedNumbers.length === 5) {
+
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 },
+            });
         }
 
     }
