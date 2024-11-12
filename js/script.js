@@ -17,15 +17,9 @@ message.classList.add("d-none");
 const container = document.querySelector("body>div");
 // console.log(container);
 const inputs = document.querySelectorAll("input");
+console.log(inputs);
 const invalidFeedback = document.querySelectorAll("div .invalid-feedback");
 console.log(invalidFeedback);
-
-
-console.log(inputs);
-
-
-
-
 
 // Timer
 
@@ -38,7 +32,6 @@ const timer = setInterval(function () {
         countDown.innerHTML = seconds--;
 
     } else {
-
 
         countDown.classList.add("d-none");
         numbersList.classList.add("d-none");
@@ -54,7 +47,6 @@ const timer = setInterval(function () {
 
 const casualNumbersArray = [];
 
-
 while (casualNumbersArray.length < 5) {
 
     const randomNumbers = randomNumbersGenerator(1, 50);
@@ -66,8 +58,6 @@ while (casualNumbersArray.length < 5) {
 }
 
 console.log(casualNumbersArray);
-
-
 
 for (let i = 0; i < casualNumbersArray.length; i++) {
 
@@ -82,8 +72,6 @@ for (let i = 0; i < casualNumbersArray.length; i++) {
 
 const replayBtn = document.createElement("button");
 console.log(replayBtn);
-
-
 
 answersForm.addEventListener("submit", function (event) {
 
@@ -111,14 +99,7 @@ answersForm.addEventListener("submit", function (event) {
 
     }
 
-
-
-
-
     console.log(userNumbers);
-
-
-
 
     // check guess numbers
 
@@ -145,10 +126,6 @@ answersForm.addEventListener("submit", function (event) {
 
 
     } console.log(guessedNumbers);
-
-
-
-
 
     // Denie user duplicates
 
