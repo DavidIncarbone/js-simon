@@ -83,7 +83,7 @@ answersForm.addEventListener("submit", function (event) {
     instructions.classList.add("d-none");
 
 
-    // extract inputs values
+    // extract inputs values and check isNaN fields
     const userNumbers = [];
 
     for (let i = 0; i < inputs.length; i++) {
@@ -96,9 +96,9 @@ answersForm.addEventListener("submit", function (event) {
 
         }
     }
+    console.log(userNumbers);
 
-
-
+    // denie duplicates from user
     const duplicates = userNumbers.filter((item, index) => userNumbers.indexOf(item) !== index);
     console.log(duplicates);
 
@@ -107,8 +107,6 @@ answersForm.addEventListener("submit", function (event) {
         location.reload();
 
     }
-
-    console.log(userNumbers);
 
     // check guess numbers
 
@@ -133,19 +131,6 @@ answersForm.addEventListener("submit", function (event) {
             });
         }
     } console.log(guessedNumbers);
-
-    //     if (duplicates.length > 0) {
-    //         alert("Non puoi inserire due o più numeri uguali!");
-    //         location.reload();
-
-    //     } else if (isNaN(field) === true) {
-
-    //         alert("Ci sono uno o più campi vuoti!");
-
-    //     }
-    // });
-
-    // Replay game
 
     replayBtn.addEventListener("click", function () {
 
