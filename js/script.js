@@ -89,12 +89,12 @@ answersForm.addEventListener("submit", function (event) {
 
     event.preventDefault();
 
-
     answersForm.classList.add("d-none");
     replayBtn.classList.add("btn", "btn-primary", "mt-2", "d-block", "mx-auto");
     container.appendChild(replayBtn);
     replayBtn.innerHTML = "Rigioca";
-
+    message.classList.remove("d-none");
+    instructions.classList.add("d-none");
 
     // extract inputs values
     const userNumbers = [];
@@ -113,13 +113,10 @@ answersForm.addEventListener("submit", function (event) {
     const guessedNumbers = [];
     for (let i = 0; i <= userNumbers.length; i++) {
         const guess = userNumbers[i];
-        message.classList.remove("d-none");
-        instructions.classList.add("d-none");
-
-
 
         if (casualNumbersArray.includes(guess)) {
             guessedNumbers.push(guess);
+
             message.innerHTML = `Hai indovinato ${guessedNumbers.length} numeri (${guessedNumbers})`;
         } else if (guessedNumbers.length === 0) {
             message.innerHTML = `Non hai indovinato nessun numero!`;
@@ -134,11 +131,23 @@ answersForm.addEventListener("submit", function (event) {
             });
         }
 
+
+    } console.log(guessedNumbers);
+
+
+    // Denie user duplicates
+
+
+    const duplicates = userNumbers.filter((item, index) => userNumbers.indexOf(item) !== index);
+    console.log(duplicates);
+
+    if (duplicates.length > 0) {
+        alert("Non puoi inserire due numeri uguali!");
+        location.reload();
+
     }
 
-    console.log(guessedNumbers);
 });
-
 
 replayBtn.addEventListener("click", function () {
 
