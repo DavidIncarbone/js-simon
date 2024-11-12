@@ -23,10 +23,6 @@ console.log(invalidFeedback);
 
 console.log(inputs);
 
-
-
-
-
 // Timer
 
 let seconds = 5;
@@ -61,6 +57,9 @@ while (casualNumbersArray.length < 5) {
 
     if (!casualNumbersArray.includes(randomNumbers)) {
         casualNumbersArray.push(randomNumbers);
+        const numbers = document.createElement("li");
+        numbers.innerHTML = randomNumbers;
+        numbersList.appendChild(numbers);
     }
 
 }
@@ -68,23 +67,10 @@ while (casualNumbersArray.length < 5) {
 console.log(casualNumbersArray);
 
 
-
-for (let i = 0; i < casualNumbersArray.length; i++) {
-
-    const numbers = document.createElement("li");
-    numbers.innerHTML = casualNumbersArray[i];
-    numbersList.appendChild(numbers);
-
-}
-
-
 // Submit event
 
 const replayBtn = document.createElement("button");
 console.log(replayBtn);
-
-
-
 answersForm.addEventListener("submit", function (event) {
 
     event.preventDefault();
@@ -99,12 +85,27 @@ answersForm.addEventListener("submit", function (event) {
 
     // extract inputs values
     const userNumbers = [];
+
     for (let i = 0; i < inputs.length; i++) {
 
         const field = parseInt(inputs[i].value);
-
-
         userNumbers.push(field);
+        if (isNaN(field) === true) {
+            alert("Ci sono uno o più campi vuoti!");
+            location.reload();
+
+        }
+    }
+
+
+
+    const duplicates = userNumbers.filter((item, index) => userNumbers.indexOf(item) !== index);
+    console.log(duplicates);
+
+    if (duplicates.length > 0) {
+        alert("Non puoi inserire due o più numeri uguali!");
+        location.reload();
+
     }
 
     console.log(userNumbers);
@@ -131,30 +132,25 @@ answersForm.addEventListener("submit", function (event) {
                 origin: { y: 0.6 },
             });
         }
-
-
     } console.log(guessedNumbers);
 
+    //     if (duplicates.length > 0) {
+    //         alert("Non puoi inserire due o più numeri uguali!");
+    //         location.reload();
 
-    // Denie user duplicates
+    //     } else if (isNaN(field) === true) {
 
+    //         alert("Ci sono uno o più campi vuoti!");
 
-    const duplicates = userNumbers.filter((item, index) => userNumbers.indexOf(item) !== index);
-    console.log(duplicates);
+    //     }
+    // });
 
-    if (duplicates.length > 0) {
-        alert("Non puoi inserire due o più numeri uguali!");
+    // Replay game
+
+    replayBtn.addEventListener("click", function () {
+
         location.reload();
-
-    }
-
-});
-
-// Replay game
-
-replayBtn.addEventListener("click", function () {
-
-    location.reload();
+    })
 })
 
 
