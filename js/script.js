@@ -17,6 +17,7 @@ message.classList.add("d-none");
 const container = document.querySelector("body>div");
 // console.log(container);
 const inputs = document.querySelectorAll("input");
+
 console.log(inputs);
 
 

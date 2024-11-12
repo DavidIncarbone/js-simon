@@ -15,3 +15,9 @@
 input {
 	width: 80px !important;
 }
+
+.input-style {
+	border: 0;
+	border-left: 5px solid red;
+	border-radius: 0;
+}

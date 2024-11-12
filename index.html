@@ -27,13 +27,27 @@
     </ul>
 
     <!-- Form -->
-    <form id="answers-form" class=" d-none">
+    <form id="answers-form" class=" d-none was-validated" novalidate>
       <div class="d-flex gap-5" id="input-group">
-        <input type="number" class="form-control" min="1" max="50" required>
-        <input type="number" class="form-control" min="1" max="50" required>
-        <input type="number" class="form-control" min="1" max="50" required>
-        <input type="number" class="form-control" min="1" max="50" required>
-        <input type="number" class="form-control" min="1" max="50" required>
+        <div> <input type="number" class="form-control input-style" min="1" max="50" required>
+          <div class="invalid-feedback">Per favore inserisci i numeri memorizzati</div>
+        </div>
+        <div>
+          <input type="number" class="form-control input-style" min="1" max="50" required>
+          <div class="invalid-feedback">Per favore inserisci i numeri memorizzati</div>
+        </div>
+        <div>
+          <input type="number" class="form-control input-style" min="1" max="50" required>
+          <div class="invalid-feedback">Per favore inserisci i numeri memorizzati</div>
+        </div>
+        <div>
+          <input type="number" class="form-control input-style" min="1" max="50" required>
+          <div class="invalid-feedback">Per favore inserisci i numeri memorizzati</div>
+        </div>
+        <div>
+          <input type="number" class="form-control input-style" min="1" max="50" required>
+          <div class="invalid-feedback">Per favore inserisci i numeri memorizzati</div>
+        </div>
       </div>
       <button class="btn btn-primary mt-2 d-block mx-auto">Conferma</button>
 
