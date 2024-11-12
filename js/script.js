@@ -17,7 +17,7 @@ message.classList.add("d-none");
 const container = document.querySelector("body>div");
 // console.log(container);
 const inputs = document.querySelectorAll("input");
-const invalidFeedback = document.querySelectorAll(".invalid-feedback");
+const invalidFeedback = document.querySelectorAll("div .invalid-feedback");
 console.log(invalidFeedback);
 
 
@@ -96,17 +96,29 @@ answersForm.addEventListener("submit", function (event) {
     message.classList.remove("d-none");
     instructions.classList.add("d-none");
 
+
     // extract inputs values
     const userNumbers = [];
     for (let i = 0; i < inputs.length; i++) {
+        let field = parseInt(inputs[i].value);
+        console.log(isNaN(field));
 
-        const field = parseInt(inputs[i].value);
 
+        if (isNaN(field) === true) {
+            alert("Riempi le caselle vuote!");
+            location.reload();
+        }
 
-        userNumbers.push(field);
     }
 
+
+
+
+
     console.log(userNumbers);
+
+
+
 
     // check guess numbers
 
@@ -133,6 +145,9 @@ answersForm.addEventListener("submit", function (event) {
 
 
     } console.log(guessedNumbers);
+
+
+
 
 
     // Denie user duplicates
